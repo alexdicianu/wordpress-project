@@ -20,16 +20,6 @@ require_once( $rootPath . '/vendor/autoload.php' );
 define( 'FORCE_SSL_ADMIN', true );
 
 /**
- * Set root path
- */
-$rootPath = realpath( __DIR__ . '/..' );
-
-/**
- * Include the Composer autoload
- */
-require_once( $rootPath . '/vendor/autoload.php' );
-
-/**
  * Pantheon platform settings. Everything you need should already be set.
  */
 if (file_exists(dirname(__FILE__) . '/wp-config-pantheon.php') && isset($_ENV['PANTHEON_ENVIRONMENT'])) {
@@ -57,6 +47,12 @@ if (file_exists(dirname(__FILE__) . '/wp-config-pantheon.php') && isset($_ENV['P
 	define('LOGGED_IN_SALT',   'put your unique phrase here');
 	define('NONCE_SALT',       'put your unique phrase here');
 }
+
+/*
+* Define wp-content directory outside of WordPress core directory
+*/
+define( 'WP_CONTENT_DIR', dirname( __FILE__ ) . '/wp-content' );
+define( 'WP_CONTENT_URL', WP_HOME . '/wp-content' );
 
 /** Standard wp-config.php stuff from here on down. **/
 
