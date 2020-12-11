@@ -30,11 +30,6 @@ $rootPath = realpath( __DIR__ . '/..' );
 require_once( $rootPath . '/vendor/autoload.php' );
 
 /**
- * Force SSL
- */
-define( 'FORCE_SSL_ADMIN', true );
-
-/**
  * Pantheon platform settings. Everything you need should already be set.
  */
 if (file_exists(dirname(__FILE__) . '/wp-config-pantheon.php') && isset($_ENV['PANTHEON_ENVIRONMENT'])) {
